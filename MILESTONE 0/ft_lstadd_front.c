@@ -1,27 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                       :::      ::::::::    */
-/*   ft_putstr_fd.c                                    :+:      :+:    :+:    */
+/*   ft_listadd_front.c                                :+:      :+:    :+:    */
 /*                                                   +:+ +:+         +:+      */
 /*   By: alegome2 <alegome2@student.42malaga.com>  #+#  +:+       +#+         */
 /*                                               +#+#+#+#+#+   +#+            */
-/*   Created: 2026/10/02 12:19:01 by alegome2         #+#    #+#              */
-/*   Updated: 2026/10/02 17:15:32 by alegome2        ###   ########.fr        */
+/*   Created: 2026/10/02 17:05:53 by alegome2         #+#    #+#              */
+/*   Updated: 2026/10/02 18:20:03 by alegome2        ###   ########.fr        */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putstr_fd(char *s, int fd)
+void	ft_lstadd_front(t_list **list, t_list *new)
 {
-	int	i;
-
-	i = 0;
-	if (!s)
-		return ;
-	while (s[i])
+	if (list && new)
 	{
-		write(fd, &s[i], 1);
-		i++;
+		new->next = *list;
+		*list = new;
 	}
 }

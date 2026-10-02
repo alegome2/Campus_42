@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: alegome2 <alegome2@student.42malaga.com    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/09/28 15:45:38 by username          #+#    #+#             */
-/*   Updated: 2026/10/02 13:05:35 by alegome2         ###   ########.fr       */
+/*                                                       :::      ::::::::    */
+/*   libft.h                                           :+:      :+:    :+:    */
+/*                                                   +:+ +:+         +:+      */
+/*   By: alegome2 <alegome2@student.42malaga.com>  #+#  +:+       +#+         */
+/*                                               +#+#+#+#+#+   +#+            */
+/*   Created: 2026/09/28 15:45:38 by alegome2         #+#    #+#              */
+/*   Updated: 2026/10/02 18:37:56 by alegome2        ###   ########.fr        */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,4 +53,16 @@ void	ft_putstr_fd(char *s, int fd);
 void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
 
+/* ******************** LISTS ******************** */
+
+typedef struct s_list
+{
+	void			*content;
+	struct s_list	*next;
+}	t_list;
+
+t_list			*ft_lstnew(void *content);
+void			ft_lstadd_front(t_list **list, t_list *new);
+unsigned int	ft_lstsize(t_list *lst);
+t_list			*ft_lstlast(t_list *lst);
 #endif
