@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: alegome2 <alegome2@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/09/24 17:18:39 by alegome2          #+#    #+#             */
-/*   Updated: 2026/09/28 16:47:48 by alegome2         ###   ########.fr       */
+/*   Created: 2026/09/24 17:18:39 by username          #+#    #+#             */
+/*   Updated: 2026/10/01 17:01:12 by alegome2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,10 @@
 
 int	ft_toupper(int c)
 {
-	if (c > 97 && c < 122)
-	{
-		c -= 32;
-		return (c);
-	}
+	if (c >= 97 && c <= 122)
+		return (c -= 32);
 	else
-		return (0);
+		return (c);
 }
 
 /*
@@ -30,9 +27,9 @@ and return it
 
 /*int main(void)
 {
-    char    c;
+char    c;
 
-    c = 'b';
-    printf("Letra: %c\n", ft_toupper(c));
-    return (0);
+c = 'b';
+printf("Letra: %c\n", ft_toupper(c));
+return (0);
 }*/

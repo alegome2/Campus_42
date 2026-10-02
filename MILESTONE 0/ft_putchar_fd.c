@@ -1,35 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_tolower.c                                       :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alegome2 <alegome2@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/09/24 17:30:04 by username          #+#    #+#             */
-/*   Updated: 2026/10/01 17:01:18 by alegome2         ###   ########.fr       */
+/*   Created: 2026/10/02 12:05:57 by username          #+#    #+#             */
+/*   Updated: 2026/10/02 13:04:56 by alegome2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_tolower(int c)
+void	ft_putchar_fd(char c, int fd)
 {
-	if (c >= 65 && c <= 90)
-		return (c = c + 32);
-	else
-		return (c);
+	write(fd, &c, 1);
 }
-
-/*
-Receive a character like an int doing de lowcase
-and return it
-*/
-
-/*int main(void)
-{
-char    c;
-
-c = 'H';
-printf("Letra: %c\n", ft_tolower(c));
-return (0);
-}*/

@@ -1,44 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alegome2 <alegome2@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/09/23 13:58:35 by username          #+#    #+#             */
-/*   Updated: 2026/10/01 17:23:54 by alegome2         ###   ########.fr       */
+/*   Created: 2026/10/02 11:14:41 by username          #+#    #+#             */
+/*   Updated: 2026/10/02 11:39:28 by alegome2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strchr(const char *s, int c)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	int	i;
+	char			*str;
+	unsigned int	i;
+	size_t			len;
 
 	i = 0;
-	while (s[i])
-		i++;
-	if (c == '\0')
-		return ((char *) & s[i]);
-	i = 0;
+	if (!s || !f)
+		return (NULL);
+	len = ft_strlen(s);
+	str = malloc((len + 1) * sizeof(char));
+	if (!str)
+		return (NULL);
 	while (s[i])
 	{
-		if (s[i] == (char) c)
-			return ((char *) & s[i]);
+		str[i] = f(i, s[i]);
 		i++;
 	}
-	return (0);
+	str[i] = '\0';
+	return (str);
 }
-/*
-Read string searching first 'c' when find it return
-this position until the end. If c='\0' return it
-*/
-
-/*int	main(void)
-{
-char	*str = "holalampara";
-
-printf("Cadena copiada: %s", strchr(str, 'l'));
-return (0);
-}*/

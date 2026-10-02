@@ -1,44 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alegome2 <alegome2@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/09/23 13:58:35 by username          #+#    #+#             */
-/*   Updated: 2026/10/01 17:23:54 by alegome2         ###   ########.fr       */
+/*   Created: 2026/10/02 11:52:28 by username          #+#    #+#             */
+/*   Updated: 2026/10/02 11:59:43 by alegome2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strchr(const char *s, int c)
+void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 {
-	int	i;
+	unsigned int	i;
 
 	i = 0;
-	while (s[i])
-		i++;
-	if (c == '\0')
-		return ((char *) & s[i]);
-	i = 0;
+	if (!s || !f)
+		return ;
 	while (s[i])
 	{
-		if (s[i] == (char) c)
-			return ((char *) & s[i]);
+		f(i, &s[i]);
 		i++;
 	}
-	return (0);
 }
-/*
-Read string searching first 'c' when find it return
-this position until the end. If c='\0' return it
-*/
-
-/*int	main(void)
-{
-char	*str = "holalampara";
-
-printf("Cadena copiada: %s", strchr(str, 'l'));
-return (0);
-}*/

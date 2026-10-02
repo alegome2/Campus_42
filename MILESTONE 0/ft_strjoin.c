@@ -6,7 +6,7 @@
 /*   By: alegome2 <alegome2@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/29 16:03:38 by alegome2          #+#    #+#             */
-/*   Updated: 2026/09/29 18:16:33 by alegome2         ###   ########.fr       */
+/*   Updated: 2026/09/30 11:17:31 by alegome2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,11 @@ char *ft_strjoin(char const *s1, char const *s2)
     str[tam] = '\0';
     return (str);
 }
+/*
+Join s1 + s2 together and '\0' in the end
+*/
 
-int main(void)
+/*int main(void)
 {
     char *s1 = "Viva ";
     char *s2 = "el Betis";
@@ -41,4 +44,4 @@ int main(void)
     printf("Joined: %s\n", strC);
     free(strC);
     return (0);
-}
+}*/

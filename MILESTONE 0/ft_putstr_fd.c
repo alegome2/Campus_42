@@ -1,44 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alegome2 <alegome2@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/09/23 13:58:35 by username          #+#    #+#             */
-/*   Updated: 2026/10/01 17:23:54 by alegome2         ###   ########.fr       */
+/*   Created: 2026/10/02 12:19:01 by username          #+#    #+#             */
+/*   Updated: 2026/10/02 12:26:12 by alegome2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strchr(const char *s, int c)
+void	ft_putstr_fd(char *s, int fd)
 {
 	int	i;
 
 	i = 0;
-	while (s[i])
-		i++;
-	if (c == '\0')
-		return ((char *) & s[i]);
-	i = 0;
+	if (!s)
+		return ;
 	while (s[i])
 	{
-		if (s[i] == (char) c)
-			return ((char *) & s[i]);
+		write(fd, &s[i], 1);
 		i++;
 	}
-	return (0);
 }
-/*
-Read string searching first 'c' when find it return
-this position until the end. If c='\0' return it
-*/
-
-/*int	main(void)
-{
-char	*str = "holalampara";
-
-printf("Cadena copiada: %s", strchr(str, 'l'));
-return (0);
-}*/

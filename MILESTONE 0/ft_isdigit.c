@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: alegome2 <alegome2@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/09/21 16:16:41 by alegome2          #+#    #+#             */
-/*   Updated: 2026/09/28 16:46:34 by alegome2         ###   ########.fr       */
+/*   Created: 2026/09/21 16:16:41 by username          #+#    #+#             */
+/*   Updated: 2026/10/01 16:57:13 by alegome2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,16 @@
 
 int	ft_isdigit(int n)
 {
-	if (n >= 0 && n <= 9)
+	if (n >= '0' && n <= '9')
 		return (1);
 	return (0);
 }
 
 /*int	main(void)
 {
-	int num;
+int num;
 
-	num = 1;
-	printf("Devuelve: %d", ft_isdigit(num));
-	return (0);
+num = 1;
+printf("Devuelve: %d", ft_isdigit(num));
+return (0);
 }*/
