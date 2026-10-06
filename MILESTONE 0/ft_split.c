@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                       :::      ::::::::    */
-/*   ft_split.c                                        :+:      :+:    :+:    */
-/*                                                   +:+ +:+         +:+      */
-/*   By: alegome2 <alegome2@student.42malaga.com>  #+#  +:+       +#+         */
-/*                                               +#+#+#+#+#+   +#+            */
-/*   Created: 2026/09/30 12:41:54 by alegome2         #+#    #+#              */
-/*   Updated: 2026/10/02 17:15:33 by alegome2        ###   ########.fr        */
+/*                                                        :::      ::::::::   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: alegome2 <alegome2@student.42malaga.com    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/09/30 12:41:54 by alegome2          #+#    #+#             */
+/*   Updated: 2026/10/06 16:54:46 by alegome2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	wordCount(char const *str, char c)
+static int	word_count(char const *str, char c)
 {
 	int	i;
 	int	counter;
@@ -32,7 +32,7 @@ static int	wordCount(char const *str, char c)
 	return (counter);
 }
 
-static void	*freeMemory(char **str, int w)
+static void	*free_memory(char **str, int w)
 {
 	while (w >= 0)
 	{
@@ -43,7 +43,7 @@ static void	*freeMemory(char **str, int w)
 	return (NULL);
 }
 
-static char	**fillWords(char const *s, char c, char **str)
+static char	**fill_words(char const *s, char c, char **str)
 {
 	int	i;
 	int	w;
@@ -62,7 +62,7 @@ static char	**fillWords(char const *s, char c, char **str)
 				len++;
 			str[w] = ft_substr(s, i, len);
 			if (!str[w])
-				return (freeMemory(str, w));
+				return (free_memory(str, w));
 			w++;
 			i = i + len;
 		}
@@ -80,11 +80,11 @@ char	**ft_split(char const *s, char c)
 
 	if (!s)
 		return (NULL);
-	counter = wordCount(s, c);
+	counter = word_count(s, c);
 	str = malloc((counter + 1) * sizeof(char *));
 	if (!str)
 		return (NULL);
-	return (fillWords(s, c, str));
+	return (fill_words(s, c, str));
 }
 
 /*

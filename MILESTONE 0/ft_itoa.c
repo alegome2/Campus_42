@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                       :::      ::::::::    */
-/*   ft_itoa.c                                         :+:      :+:    :+:    */
-/*                                                   +:+ +:+         +:+      */
-/*   By: alegome2 <alegome2@student.42malaga.com>  #+#  +:+       +#+         */
-/*                                               +#+#+#+#+#+   +#+            */
-/*   Created: 2026/10/01 12:23:36 by alegome2         #+#    #+#              */
-/*   Updated: 2026/10/02 17:15:04 by alegome2        ###   ########.fr        */
+/*                                                        :::      ::::::::   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: alegome2 <alegome2@student.42malaga.com    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/10/01 12:23:36 by alegome2          #+#    #+#             */
+/*   Updated: 2026/10/06 16:53:52 by alegome2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	getLen(long nb)
+static int	get_len(long nb)
 {
 	int	counter;
 
@@ -42,7 +42,7 @@ char	*ft_itoa(int n)
 	int		len;
 
 	nb = n;
-	len = getLen(nb);
+	len = get_len(nb);
 	str = malloc((len + 1) * sizeof(char));
 	if (!str)
 		return (NULL);

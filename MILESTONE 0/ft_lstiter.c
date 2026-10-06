@@ -1,33 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
+/*   ft_lstiter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alegome2 <alegome2@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/10/02 17:05:53 by alegome2          #+#    #+#             */
-/*   Updated: 2026/10/05 10:32:09 by alegome2         ###   ########.fr       */
+/*   Created: 2026/10/05 13:47:25 by alegome2          #+#    #+#             */
+/*   Updated: 2026/10/05 14:03:30 by alegome2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstadd_front(t_list **list, t_list *new)
+void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
-	if (list && new)
+	if (!lst || !f)
+		return ;
+	while (lst)
 	{
-		new->next = *list;
-		*list = new;
+		f(lst->content);
+		lst = lst->next;
 	}
 }
-
-/*void	ft_lstadd_front(t_list **list, t_list *new)
-{
-if (!new || !list)
-return ;
-new->next = *list;
-*list = new;
-}*/
-//Compruebo que no esten vacios
-//engancho new.next al inicio de la siguiente lista
-//el inicio de la lista lo igual a la que tengo que poner delante
