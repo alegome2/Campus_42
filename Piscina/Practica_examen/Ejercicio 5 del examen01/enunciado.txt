@@ -1,0 +1,1 @@
+Escribe los digitos del 1 al 100, si el numero es multiplo de 4 escribe "buzz", si es multiplo de 7 escribe "fizz" y si es multiplo de 4 y 7 escribe "buzzfizz". Usa la funcion <write>.
