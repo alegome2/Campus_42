@@ -6,7 +6,7 @@
 /*   By: alegome2 <alegome2@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/22 16:42:54 by alegome2          #+#    #+#             */
-/*   Updated: 2026/10/23 12:21:42 by alegome2         ###   ########.fr       */
+/*   Updated: 2026/10/23 14:22:45 by alegome2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,33 @@ char	*read_and_stash(int fd, char *stash)
 		free(temp);
 	}
 	return (free(buffer_temp), stash);
+}
+
+char	*extract_line(char *stash)
+{
+	int		i;
+	char	*line;
+
+	if (!stash || !stash[0])
+		return (NULL);
+	i = 0;
+	while (stash[i] && stash[i] != '\n')
+		i++;
+	if (stash[i] == '\n')
+		i++;
+	line = malloc((i + 1) * sizeof(char));
+	if (!line)
+		return (NULL);
+	i = 0;
+	while (stash[i] && stash[i] != '\n')
+	{
+		line[i] = stash[i];
+		i++;
+	}
+	if (stash[i] == '\n')
+		line[i++] = '\n';
+	line[i] = '\0';
+	return (line);
 }
 
 char	*get_next_line(int fd)
