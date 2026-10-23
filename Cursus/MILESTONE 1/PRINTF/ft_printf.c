@@ -6,7 +6,7 @@
 /*   By: alegome2 <alegome2@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/14 12:36:56 by username          #+#    #+#             */
-/*   Updated: 2026/10/19 19:47:30 by alegome2         ###   ########.fr       */
+/*   Updated: 2026/10/20 19:09:38 by alegome2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,9 @@ static int	check_format(char c, va_list args)
 	else if (c == 'u')
 		counter = counter + ft_print_unsigned(va_arg(args, unsigned int));
 	else if (c == 'x')
-		counter = counter + ft_print_hex(va_arg(args, unsigned int), "0123456789abcdef");
+		counter += ft_print_hex(va_arg(args, unsigned int), "0123456789abcdef");
 	else if (c == 'X')
-		counter = counter + ft_print_hex(va_arg(args, unsigned int), "0123456789ABCDEF");
+		counter += ft_print_hex(va_arg(args, unsigned int), "0123456789ABCDEF");
 	else if (c == '%')
 		counter = counter + ft_print_char('%');
 	return (counter);
