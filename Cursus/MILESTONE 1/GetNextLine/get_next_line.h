@@ -6,7 +6,7 @@
 /*   By: alegome2 <alegome2@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/22 12:56:36 by alegome2          #+#    #+#             */
-/*   Updated: 2026/10/23 14:24:19 by alegome2         ###   ########.fr       */
+/*   Updated: 2026/10/26 11:47:16 by alegome2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,9 @@
 size_t	ft_strlen(const char *s);
 char	*ft_strchr(const char *s, int c);
 char	*ft_strjoin(char *s1, char *s2);
-char	*get_next_line(int fd);
+char	*ft_strdup(const char *s);
 char	*get_next_line(int fd);
 char	*read_and_stash(int fd, char *stash);
 char	*extract_line(char *stash);
+char	*clean_stash(char *stash);
 #endif

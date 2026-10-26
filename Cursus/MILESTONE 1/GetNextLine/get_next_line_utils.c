@@ -6,7 +6,7 @@
 /*   By: alegome2 <alegome2@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/22 12:52:30 by alegome2          #+#    #+#             */
-/*   Updated: 2026/10/23 12:09:30 by alegome2         ###   ########.fr       */
+/*   Updated: 2026/10/26 11:45:37 by alegome2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,4 +62,28 @@ char	*ft_strjoin(char *s1, char *s2)
 		str[i++] = s2[j++];
 	str[i] = '\0';
 	return (str);
+}
+
+char	*ft_strdup(const char *s)
+{
+	size_t	len;
+	char	*duplicate;
+	size_t	i;
+
+	if (!s)
+		return (NULL);
+	len = 0;
+	i = 0;
+	while (s[len])
+		len++;
+	duplicate = (char *) malloc((len + 1) * sizeof(char));
+	if (duplicate == NULL)
+		return (NULL);
+	while (i < len)
+	{
+		duplicate[i] = s[i];
+		i++;
+	}
+	duplicate[i] = '\0';
+	return (duplicate);
 }
