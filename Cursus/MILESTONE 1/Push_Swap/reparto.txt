@@ -1,0 +1,82 @@
+========================================================================================
+ FASE 0: BASE COMÚN (PAIR PROGRAMMING)
+ [Ambos en una sola pantalla / misma rama]
+ ├── Definición de la estructura del nodo (t_node) y tipos en push_swap.h
+ └── Implementación de operaciones atómicas: swap, push, rotate, rev_rotate
+========================================================================================
+                                      │
+                                      ▼
+               ┌──────────────────────────────────────────────┐
+               │         RAMIFICACIÓN DEL TRABAJO             │
+               │ (Ramas Git independientes: feat/ y review)   │
+               └──────────────────────┬───────────────────────┘
+                                      │
+              ┌───────────────────────┴───────────────────────┐
+              ▼                                               ▼
+┌───────────────────────────────┐               ┌───────────────────────────────┐
+│         COMPAÑERO A           │               │         COMPAÑERO B           │
+├───────────────────────────────┤               ├───────────────────────────────┤
+│ FASE 1.A: Parser & Memoria    │               │ FASE 1.B: Métrica & Índices   │
+│ • Parseo de strings y split   │               │ • Cálculo del disorder index  │
+│ • Control de límites (int)    │               │ • Normalización (0 a n-1)     │
+│ • Detección de duplicados     │               │ • Rutina de métricas (--bench)│
+│ • free_stack() y salida Error │               │                               │
+└─────────────┬─────────────────┘               └───────────────┬───────────────┘
+              │                                                 │
+              ▼                                                 ▼
+┌───────────────────────────────┐               ┌───────────────────────────────┐
+│ FASE 2.A: Algoritmos          │               │ FASE 2.B: Algoritmos          │
+│ • Estrategia Simple:          │               │ • Casos base (2 y 3 números)  │
+│   Inserción/Selección O(n²)   │               │ • Estrategia Media:           │
+│ • Estrategia Compleja:        │               │   Chunks/Bloques O(n√n)       │
+│   Radix por bits O(n log n)   │               │ • Estrategia Adaptativa:      │
+│                               │               │   Router según % de desorden  │
+└─────────────┬─────────────────┘               └───────────────┬───────────────┘
+              │                                                 │
+              └───────────────────────┬─────────────────────────┘
+                                      │
+                                      ▼
+               ┌──────────────────────────────────────────────┐
+               │      CRUCE DE CÓDIGO Y CODE REVIEW           │
+               │  (Cada uno revisa y prueba la rama del otro) │
+               └──────────────────────┬───────────────────────┘
+                                      │
+                                      ▼
+========================================================================================
+ FASE 3: INTEGRACIÓN, VALIDACIÓN Y EVALUACIÓN
+ [Trabajo coordinado final]
+ ├── Compañero A: Parser de flags CLI (--simple, --medium...) + Valgrind / Leaks
+ ├── Compañero B: README.md obligatorio (justificación matemática) + Scripts shuf
+ └── Simulación mutua de defensa y preguntas de live-coding
+========================================================================================
+
+
+A. MOTIVOS Y JUSTIFICACIÓN DE LA SEPARACIÓN DE TAREAS
+
+1. Cero Bloqueos Mutuos (Desarrollo Paralelo Real):
+   - El Compañero B no tiene que esperar a que el parser esté terminado para programar. Puede probar sus algoritmos, la indexación y el desorden sobre arrays estáticos o listas creadas a mano en un archivo de test.
+
+2. Equilibrio de Carga Técnica y Mental:
+   - Compañero A asume la dificultad de depuración de memoria (gestión de ft_split, overflows de INT_MIN/INT_MAX, dobles liberaciones y fugas de memoria con Valgrind). Como contrapartida, sus algoritmos asignados (Inserción y Radix) son lineales y de lógica predecible.
+   - Compañero B asume la dificultad analítica y matemática (cálculo formal de desorden, optimización de rangos por chunks de tamaño sqrt(n) y redacción técnica de justificaciones para el README).
+
+3. Blindaje de la Evaluación entre Pares y Live-Coding:
+   - 42 exige que ambos integrantes puedan responder por cualquier fragmento del código y realizar pequeñas modificaciones en vivo solicitadas por el evaluador. Al programar la base de operaciones juntos y cruzar revisiones obligatorias de los algoritmos del otro, ambos garantizan el dominio total del repositorio.
+
+4. Trazabilidad Limpia en el Repositorio:
+   - La división modular permite ramas limpias (feat/parser, feat/disorder, feat/chunks, feat/radix) y asegura que ambos perfiles tengan un historial de commits parejo y justificado, cumpliendo el requisito de contribución significativa de ambos estudiantes.
+
+
+B. LÍMITES DE RENDIMIENTO OBLIGATORIOS PARA LA EVALUACIÓN
+
+Durante la evaluación, el programa se pondrá a prueba con secuencias aleatorias generadas por el evaluador:
+
+- Para 100 números aleatorios:
+  * Menos de 2000 operaciones: Requisito mínimo para superar el corte.
+  * Menos de 1500 operaciones: Rendimiento bueno.
+  * Menos de 700 operaciones: Rendimiento excelente.
+
+- Para 500 números aleatorios:
+  * Menos de 12000 operaciones: Requisito mínimo para superar el corte.
+  * Menos de 8000 operaciones: Rendimiento bueno.
+  * Menos de 5500 operaciones: Rendimiento excelente.
